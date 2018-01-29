@@ -1,3 +1,4 @@
+#![recursion_limit="256"]
 #[macro_use]
 extern crate stdweb;
 
@@ -54,4 +55,21 @@ fn main() {
     }
 
     test_time("__js_raw_asm! macro");
+
+    // // Testing pure js
+    // js!{
+    //     @(no_return)
+    //     window.pcounter = 0;
+    //     window.ptime = performance.now();
+    //     window.test_pure_js = function(){
+    //         window.pcounter += 1;
+    //     };
+        
+    //     for(var i = 0; i < 500000; i++){            
+    //         window.test_pure_js();
+    //     }
+
+    //     console.log("pure js pcounter = " + window.pcounter);        
+    //     console.log("pure js ptime = " + (performance.now() - window.ptime));
+    // }
 }
